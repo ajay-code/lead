@@ -24454,7 +24454,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     create: function create() {
-      if (!this.withDetail) {
+      if (!(this.$store.state.contact.set || this.withDetail)) {
         this.$store.state.contacts.push(this.form.name);
         this.$router.go(-1);
       } else {
