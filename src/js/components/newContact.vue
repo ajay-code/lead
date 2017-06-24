@@ -30,30 +30,28 @@
         <input type="text" v-model="form.name" placeholder="Name" class="text-input width-90" >
         </div>
       </li>
-      <li class="list-item " v-if="!withDetail">
+      <li class="list-item " v-if="!showDetail">
         <div class="list-item__center ">
         <div class="add-more-details">
           <span><a class="plain-anchor" @click.prevent="withDetail = true">Add More Details</a></span>
         </div>
         </div>
       </li>
-      <li class="list-item " v-if="withDetail">
-        <div class="list-item__center list-item--chevron">
-        <span class="icon-span">
-            <i class="fa fa-id-badge fa-2x list-item__icon"></i>
-          </span>
-        <select id="account" class="select-input placeholder">
-          <option selected disabled="" value="" class="placeholder">Choose Account</option>
-          <option value="1" class="black">Account 1</option>
-          <option value="2" class="black">Account 2</option>
-          <option value="3" class="black">Account 3</option>
-        </select>
-        </div>
-      </li>
+      
+      <router-link to="accountforcontact">
+        <li class="list-item " v-if="showDetail">
+          <div class="list-item__center list-item--chevron">
+          <span class="icon-span">
+              <i class="fa fa-id-badge fa-2x list-item__icon"></i>
+            </span>
+            <input type="text" class="text-input width-90" placeholder="Choose Account" :value="account()">
+          </div>
+        </li>
+      </router-link>
       
      </ul>
 
-     <div v-if="withDetail">
+     <div v-if="showDetail">
      <div class="title">
           Phone
      </div>
@@ -138,7 +136,9 @@
       },
 
       computed: {
-        
+        showDetail(){
+          return this.$store.state.contact.set || this.withDetail;
+        }
       },
 
       methods: {
@@ -149,6 +149,14 @@
           }else{
 
           }
+        },
+        account(){
+          if(this.$store.state.contact.set){
+            return this.$store.state.contact.obj.account;
+            
+          }
+
+          return '';
         }
 
       }

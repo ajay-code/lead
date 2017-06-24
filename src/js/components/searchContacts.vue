@@ -5,15 +5,23 @@
         <i class="zmdi zmdi-plus col-white"></i>
       </span>
     </router-link>
+
+    <div class="toolbar">
+      <div class="left toolbar__left" @click="$router.go(-1)">
+        <span class="back-button" style="display: inline-block;">
+          <span class="back-button__icon"></span>
+            <span class="back-button__label">Back</span>
+        </span>
+      </div>
+      <div class="center toolbar__center">
+        Contacts
+      </div>
+      
+    </div>
+
+
     <ul class="list">
       <li class="list-item bg-gray">
-        <div class="list-item__left ">
-            <router-link to="/">
-              <span class="back-button" style="display: inline-block;">
-                <span class="back-button__icon"></span><span class="back-button__label">Back</span>
-              </span>
-            </router-link>
-        </div>
         <div class="list-item__center ">
             <input type="search" value="" placeholder="Search" class="search-input bg-white" v-model="search">
         </div>

@@ -22726,7 +22726,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 
 		contact: {
 			set: false,
-			obj: {}
+			obj: {
+				account: ''
+			}
 		}
 	}
 }));
@@ -23896,6 +23898,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -23947,26 +23955,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('ul', {
+  return _c('div', [_c('div', {
+    staticClass: "toolbar"
+  }, [_c('div', {
+    staticClass: "left toolbar__left",
+    on: {
+      "click": function($event) {
+        _vm.$router.go(-1)
+      }
+    }
+  }, [_vm._m(0)]), _vm._v(" "), _c('div', {
+    staticClass: "center toolbar__center"
+  }, [_vm._v("\n    Accounts\n  ")])]), _vm._v(" "), _c('ul', {
     staticClass: "list"
   }, [_c('li', {
     staticClass: "list-item bg-gray"
   }, [_c('div', {
-    staticClass: "list-item__left "
-  }, [_c('router-link', {
-    attrs: {
-      "to": "/"
-    }
-  }, [_c('span', {
-    staticClass: "back-button",
-    staticStyle: {
-      "display": "inline-block"
-    }
-  }, [_c('span', {
-    staticClass: "back-button__icon"
-  }), _c('span', {
-    staticClass: "back-button__label"
-  }, [_vm._v("Back")])])])], 1), _vm._v(" "), _c('div', {
     staticClass: "list-item__center "
   }, [_c('input', {
     directives: [{
@@ -24012,7 +24016,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     })])
   }))])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "back-button",
+    staticStyle: {
+      "display": "inline-block"
+    }
+  }, [_c('span', {
+    staticClass: "back-button__icon"
+  }), _vm._v(" "), _c('span', {
+    staticClass: "back-button__label"
+  }, [_vm._v("Back")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -24103,6 +24118,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -24159,26 +24182,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "fab fab--mini bg-green fab--bottom__right"
   }, [_c('i', {
     staticClass: "zmdi zmdi-plus col-white"
-  })])]), _vm._v(" "), _c('ul', {
+  })])]), _vm._v(" "), _c('div', {
+    staticClass: "toolbar"
+  }, [_c('div', {
+    staticClass: "left toolbar__left",
+    on: {
+      "click": function($event) {
+        _vm.$router.go(-1)
+      }
+    }
+  }, [_vm._m(0)]), _vm._v(" "), _c('div', {
+    staticClass: "center toolbar__center"
+  }, [_vm._v("\n    Contacts\n  ")])]), _vm._v(" "), _c('ul', {
     staticClass: "list"
   }, [_c('li', {
     staticClass: "list-item bg-gray"
   }, [_c('div', {
-    staticClass: "list-item__left "
-  }, [_c('router-link', {
-    attrs: {
-      "to": "/"
-    }
-  }, [_c('span', {
-    staticClass: "back-button",
-    staticStyle: {
-      "display": "inline-block"
-    }
-  }, [_c('span', {
-    staticClass: "back-button__icon"
-  }), _c('span', {
-    staticClass: "back-button__label"
-  }, [_vm._v("Back")])])])], 1), _vm._v(" "), _c('div', {
     staticClass: "list-item__center "
   }, [_c('input', {
     directives: [{
@@ -24224,7 +24243,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     })])
   }))], 1)
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "back-button",
+    staticStyle: {
+      "display": "inline-block"
+    }
+  }, [_c('span', {
+    staticClass: "back-button__icon"
+  }), _vm._v(" "), _c('span', {
+    staticClass: "back-button__label"
+  }, [_vm._v("Back")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -24402,8 +24432,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -24418,7 +24446,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   mounted: function mounted() {},
 
-  computed: {},
+  computed: {
+    showDetail: function showDetail() {
+      return this.$store.state.contact.set || this.withDetail;
+    }
+  },
 
   methods: {
     create: function create() {
@@ -24426,6 +24458,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.$store.state.contacts.push(this.form.name);
         this.$router.go(-1);
       } else {}
+    },
+    account: function account() {
+      if (this.$store.state.contact.set) {
+        return this.$store.state.contact.obj.account;
+      }
+
+      return '';
     }
   }
 
@@ -24490,7 +24529,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.form.name = $event.target.value
       }
     }
-  })])]), _vm._v(" "), (!_vm.withDetail) ? _c('li', {
+  })])]), _vm._v(" "), (!_vm.showDetail) ? _c('li', {
     staticClass: "list-item "
   }, [_c('div', {
     staticClass: "list-item__center "
@@ -24504,13 +24543,32 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.withDetail = true
       }
     }
-  }, [_vm._v("Add More Details")])])])])]) : _vm._e(), _vm._v(" "), (_vm.withDetail) ? _c('li', {
+  }, [_vm._v("Add More Details")])])])])]) : _vm._e(), _vm._v(" "), _c('router-link', {
+    attrs: {
+      "to": "accountforcontact"
+    }
+  }, [(_vm.showDetail) ? _c('li', {
     staticClass: "list-item "
-  }, [_vm._m(2)]) : _vm._e()]), _vm._v(" "), (_vm.withDetail) ? _c('div', [_c('div', {
+  }, [_c('div', {
+    staticClass: "list-item__center list-item--chevron"
+  }, [_c('span', {
+    staticClass: "icon-span"
+  }, [_c('i', {
+    staticClass: "fa fa-id-badge fa-2x list-item__icon"
+  })]), _vm._v(" "), _c('input', {
+    staticClass: "text-input width-90",
+    attrs: {
+      "type": "text",
+      "placeholder": "Choose Account"
+    },
+    domProps: {
+      "value": _vm.account()
+    }
+  })])]) : _vm._e()])], 1), _vm._v(" "), (_vm.showDetail) ? _c('div', [_c('div', {
     staticClass: "title"
-  }, [_vm._v("\n        Phone\n   ")]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('div', {
+  }, [_vm._v("\n        Phone\n   ")]), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('div', {
     staticClass: "title"
-  }, [_vm._v("\n        Email\n   ")]), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _vm._m(5)]) : _vm._e()])])
+  }, [_vm._v("\n        Email\n   ")]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _vm._m(4)]) : _vm._e()])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('span', {
     staticClass: "back-button",
@@ -24528,41 +24586,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('i', {
     staticClass: "fa fa-user fa-2x list-item__icon"
   })])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "list-item__center list-item--chevron"
-  }, [_c('span', {
-    staticClass: "icon-span"
-  }, [_c('i', {
-    staticClass: "fa fa-id-badge fa-2x list-item__icon"
-  })]), _vm._v(" "), _c('select', {
-    staticClass: "select-input placeholder",
-    attrs: {
-      "id": "account"
-    }
-  }, [_c('option', {
-    staticClass: "placeholder",
-    attrs: {
-      "selected": "",
-      "disabled": "",
-      "value": ""
-    }
-  }, [_vm._v("Choose Account")]), _vm._v(" "), _c('option', {
-    staticClass: "black",
-    attrs: {
-      "value": "1"
-    }
-  }, [_vm._v("Account 1")]), _vm._v(" "), _c('option', {
-    staticClass: "black",
-    attrs: {
-      "value": "2"
-    }
-  }, [_vm._v("Account 2")]), _vm._v(" "), _c('option', {
-    staticClass: "black",
-    attrs: {
-      "value": "3"
-    }
-  }, [_vm._v("Account 3")])])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('ul', {
     staticClass: "list"
@@ -24738,6 +24761,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -24774,8 +24802,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         clear: function clear() {
             this.search = '';
+        },
+        setContactAccount: function setContactAccount(account) {
+            console.log(account);
+            this.$store.state.contact.obj.account = account;
+            this.$store.state.contact.set = true;
+            console.log(this.$store.state.contact.obj);
+            this.$router.go(-1);
         }
-
     }
 
 });
@@ -24785,26 +24819,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('ul', {
+  return _c('div', [_c('div', {
+    staticClass: "toolbar"
+  }, [_c('div', {
+    staticClass: "left toolbar__left",
+    on: {
+      "click": function($event) {
+        _vm.$router.go(-1)
+      }
+    }
+  }, [_vm._m(0)]), _vm._v(" "), _c('div', {
+    staticClass: "center toolbar__center"
+  }, [_vm._v("\n    Accounts\n  ")])]), _vm._v(" "), _c('ul', {
     staticClass: "list"
   }, [_c('li', {
     staticClass: "list-item bg-gray"
   }, [_c('div', {
-    staticClass: "list-item__left "
-  }, [_c('router-link', {
-    attrs: {
-      "to": "/"
-    }
-  }, [_c('span', {
-    staticClass: "back-button",
-    staticStyle: {
-      "display": "inline-block"
-    }
-  }, [_c('span', {
-    staticClass: "back-button__icon"
-  }), _c('span', {
-    staticClass: "back-button__label"
-  }, [_vm._v("Back")])])])], 1), _vm._v(" "), _c('div', {
     staticClass: "list-item__center "
   }, [_c('input', {
     directives: [{
@@ -24842,10 +24872,26 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "list-item__center",
       domProps: {
         "textContent": _vm._s(name)
+      },
+      on: {
+        "click": function($event) {
+          _vm.setContactAccount(name)
+        }
       }
     })])
   }))])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "back-button",
+    staticStyle: {
+      "display": "inline-block"
+    }
+  }, [_c('span', {
+    staticClass: "back-button__icon"
+  }), _vm._v(" "), _c('span', {
+    staticClass: "back-button__label"
+  }, [_vm._v("Back")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

@@ -20,7 +20,9 @@ export default new Vuex.Store({
 
 		contact: {
 			set: false,
-			obj: {}
+			obj: {
+				account: ''
+			}
 		}
 	}
 })
