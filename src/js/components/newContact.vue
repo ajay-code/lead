@@ -57,20 +57,19 @@
      </div>
 
      <ul class="list">
-      <li class="list-item ">
+      <li class="list-item " v-for="(number, index) in form.numbers">
       <div class="list-item__left">
         <span class="icon-span">
-            <label for="number">
-              <span class="fab fab--mini bg-green"><i class="zmdi zmdi-plus col-white"></i></span>
-            </label>
+              <span v-if="index === 0" class="fab fab--mini bg-green" @click="addNumber"><i class="zmdi zmdi-plus col-white"></i></span>
         </span>
       </div>
         <div class="list-item__center">
         
-        <input type="number" id="number" value="" placeholder="Add Number" class="text-input width-90" >
+        <input type="number"  :placeholder="'Add Number ' + (1+index)" class="text-input width-90" v-model="form.numbers[index]">
         
         </div>
       </li>
+      
       
      </ul>
 
@@ -79,17 +78,15 @@
      </div>
 
      <ul class="list">
-      <li class="list-item ">
+      <li class="list-item " v-for="(email, index) in form.emails">
       <div class="list-item__left">
         <span class="icon-span">
-            <label for="email">
-              <span class="fab fab--mini bg-green"><i class="zmdi zmdi-plus col-white"></i></span>
-            </label>
-          </span>
+              <span v-if="index === 0" class="fab fab--mini bg-green" @click="addEmail"><i class="zmdi zmdi-plus col-white"></i></span>
+        </span>
       </div>
         <div class="list-item__center ">
         
-        <input type="email" value="" id="email" placeholder="Add Email Address" class="text-input width-90" >
+        <input type="email"  :placeholder="'Add Email ' + (1+index)" class="text-input width-90" v-model="form.emails[index]">
         
         </div>
       </li>
@@ -126,7 +123,9 @@
             return {
                     withDetail: false,
                     form: {
-                      name: ''
+                      name: '',
+                      numbers: [''],
+                      emails: ['']
                     }
                   }
       },
@@ -158,6 +157,17 @@
           }
 
           return '';
+        },
+        addNumber(){
+          if(this.form.numbers.length < 3){
+            this.form.numbers.push('');
+          }
+        },
+
+        addEmail(){
+          if(this.form.emails.length < 3){
+            this.form.emails.push('');
+          }
         }
 
       }
