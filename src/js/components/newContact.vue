@@ -147,7 +147,8 @@
               this.$store.state.contacts.push(this.form.name);
               this.$router.go(-1);
           }else{
-
+            this.$store.state.contacts.push(this.form.name);
+            this.$router.go(-1);
           }
         },
         account(){

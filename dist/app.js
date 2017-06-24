@@ -24457,7 +24457,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (!this.withDetail) {
         this.$store.state.contacts.push(this.form.name);
         this.$router.go(-1);
-      } else {}
+      } else {
+        this.$store.state.contacts.push(this.form.name);
+        this.$router.go(-1);
+      }
     },
     account: function account() {
       if (this.$store.state.contact.set) {
