@@ -1,0 +1,268 @@
+/*
+**
+**
+* New Lead *
+**
+**
+*/
+i {
+	color: #737577;
+}
+
+.icon-span{
+	width: 30px;
+	text-align: center;
+}
+
+
+.placeholder{
+	color: #eff0f0;
+
+}
+
+.list input[type='text'] {
+  width: 100%
+}
+
+body{
+	background: #f2f5f5;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  
+}
+
+.black{
+  color: black
+}
+
+/* Select */
+.select-input {
+  box-sizing: border-box;
+  background-clip: padding-box;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  background: transparent;
+  border: none;
+  vertical-align: top;
+  outline: none;
+  line-height: 1;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  font-size: 17px;
+  height: 32px;
+  line-height: 32px;
+  border-color: #ccc;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  display: inline-block;
+  border-radius: 0;
+  border: none;
+  padding: 0 20px 0 0;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: right center;
+  border-bottom: none;
+  width: 80%;
+}
+.select-input::-ms-clear {
+  display: none;
+}
+.select-input::-webkit-input-placeholder {
+  color: #999;
+}
+.select-input::-moz-placeholder {
+  color: #999;
+}
+.select-input:-ms-input-placeholder {
+  color: #999;
+}
+.select-input::placeholder {
+  color: #999;
+}
+
+option[disabled]{
+  display: none
+}
+
+
+
+
+
+/*
+**
+**
+* Search Contact *
+**
+**
+*/
+
+.search-input{
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+
+}
+
+
+
+
+
+/*
+**
+**
+* Create Contact *
+**
+**
+*/
+
+.add-more-details{
+  height: 32px;
+  line-height: 32px;
+  text-align: center; 
+  width: 100%;
+  color: #6ba6c8;
+  font-weight: 600;
+}
+
+
+/*
+**
+**
+* Create Contact with Details*
+**
+**
+*/
+
+.title{
+  height: 52px;
+  line-height: 52px;
+  color: #b5b6b8;
+  font-size: 20px;
+  padding-left: 14px;
+  font-family: -apple-system, 'Helvetica Neue', 'Helvetica', 'Arial', 'Lucida Grande', sans-serif;
+  font-weight: 200;
+}
+
+.fab {
+  box-shadow: none ;
+}
+
+
+
+
+/*
+**
+**
+* Helper Classes *
+**
+**
+*/
+
+.no-padding{ 
+  padding: 0 !important;
+}
+
+
+.no-margin{
+  margin: 0 !important;
+}
+
+.width-90{
+  width: 90% !important;
+}
+
+.width-80{
+  width: 80% !important;
+}
+
+.width-70{
+  width: 70% !important;
+}
+
+.width-60{
+  width: 60% !important;
+}
+.width-50{
+  width: 50% !important;
+}
+.width-40{
+  width: 40% !important;
+}
+.width-30{
+  width: 30% !important;
+}
+.width-20{
+  width: 20% !important;
+}
+.width-10{
+  width: 10% !important;
+}
+
+.width-auto{
+  width: auto !important;
+}
+
+.bg-green{
+  background-color: #45c25e !important;
+}
+
+.bg-gray{
+  background-color: #cac9d0 !important;
+}
+
+.bg-white{
+  background-color: #fff !important;
+}
+
+.bg-lblue{
+  background-color: #f2f5f5 !important;
+}
+
+.col-white{
+  color:  white !important;
+}
+
+.col-blue{
+  color:  #6ba6c8 !important;
+}
+
+
+.text-left{
+  text-align: left !important;
+}
+
+
+.text-right{
+  text-align: right !important;
+
+}
+
+
+.text-center{
+  text-align: center !important;
+}
+.border-bottom{
+    border-bottom: none;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: -webkit-linear-gradient(bottom, #ccc, #ccc 100%);
+    background-image: linear-gradient(0deg, #ccc, #ccc 100%);
+}
+
+.plain-anchor{
+  text-decoration: none;
+  color: inherit;
+}
+
+ul a{
+  text-decoration: none;
+  color: inherit;
+}
+
