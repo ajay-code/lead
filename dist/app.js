@@ -25847,6 +25847,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     reset: function reset() {
       this.form.withDetail = false;
+      this.form.name = '';
       this.form.account = '';
       this.form.Owner = '';
       this.form.numbers = [''];

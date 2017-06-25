@@ -144,6 +144,7 @@
 
         reset(){
             this.form.withDetail = false; 
+            this.form.name = '';
             this.form.account = '';
             this.form.Owner = '';
             this.form.numbers = [''];
