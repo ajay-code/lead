@@ -40,7 +40,7 @@
           <li class="list-item ">
             <div class="list-item__center">
               
-            <input type="text" class="text-input" placeholder="Lead title" value="">
+            <input type="text" class="text-input" placeholder="Lead title" >
             </div>
           </li>
         </ul>
@@ -49,7 +49,7 @@
         <ul class="list">
           <li class="list-item ">
             <div class="list-item__center">
-            <input type="text" class="text-input" placeholder="Lead value" value="">
+            <input type="text" class="text-input" placeholder="Lead value" >
             </div>
           </li>
         </ul>
@@ -78,9 +78,7 @@
     import eventHub from '../event';
     export default {
         data: function(){
-            return {
-                    
-                  }
+            
       },
 
       mounted: function () {
