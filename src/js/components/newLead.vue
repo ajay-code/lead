@@ -40,7 +40,7 @@
           <li class="list-item ">
             <div class="list-item__center">
               
-            <input type="text" class="text-input" placeholder="Lead title" >
+            <input type="text" class="text-input" placeholder="Lead title" v-model="$store.state.lead.title">
             </div>
           </li>
         </ul>
@@ -49,7 +49,7 @@
         <ul class="list">
           <li class="list-item ">
             <div class="list-item__center">
-            <input type="text" class="text-input" placeholder="Lead value" >
+            <input type="text" class="text-input" placeholder="Lead value" v-model="$store.state.lead.value">
             </div>
           </li>
         </ul>
@@ -62,7 +62,7 @@
                   </div>
                   <div class="list-item__center"></div>
                   <div class="list-item__right list-item--chevron ">
-                  <select id="contact" class="select-input width-auto">
+                  <select id="contact" class="select-input width-auto" >
                     <option value="1" class="black">Michel (you)</option>
                     <option value="2" class="black">Ajay</option>
                     <option value="3" class="black">Ron</option>
@@ -77,13 +77,15 @@
 <script>
     import eventHub from '../event';
     export default {
-        data: function(){
-            
+      
+      data(){
+            return {}
       },
 
       mounted: function () {
         $('body').addClass('bg-lblue');
         $('body').removeClass('bg-white');
+        window.S = this.$store
         
       },
 

@@ -24079,19 +24079,25 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 	state: {
 		contacts: ['Ajay', 'Sukhjeet Singh', 'Hudson', 'Hull', 'Humphrey', 'Hunt', 'Hunter'],
 		accounts: ['Hudson', 'Hull', 'Humphrey', 'Hunt'],
-
+		owners: ['Michel (you)', 'Ajay', 'Aman'],
 		lead: {
 			contact: '',
-			account: ''
+			account: '',
+			title: '',
+			value: '',
+			owner: ''
 		},
 
 		contact: {
-			set: false,
-			obj: {
-				account: ''
-			}
+			name: '',
+			account: '',
+			Owner: '',
+			numbers: [''],
+			emails: [''],
+			withDetail: false
 		}
 	}
+
 }));
 
 /***/ }),
@@ -25038,9 +25044,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {};
   },
 
+
   mounted: function mounted() {
     $('body').addClass('bg-lblue');
     $('body').removeClass('bg-white');
+    window.S = this.$store;
   },
 
   computed: {},
@@ -25105,41 +25113,65 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "value": _vm.account()
     }
-  })])])]), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _vm._m(2), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _vm._m(3)])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "toolbar"
-  }, [_c('div', {
-    staticClass: "center toolbar__center"
-  }, [_vm._v("\n    New Lead\n  ")])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('li', {
+  })])])]), _vm._v(" "), _c('li', {
     staticClass: "list-item "
   }, [_c('div', {
     staticClass: "list-item__center"
   }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.$store.state.lead.title),
+      expression: "$store.state.lead.title"
+    }],
     staticClass: "text-input",
     attrs: {
       "type": "text",
-      "placeholder": "Lead title",
-      "value": ""
+      "placeholder": "Lead title"
+    },
+    domProps: {
+      "value": (_vm.$store.state.lead.title)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.$store.state.lead.title = $event.target.value
+      }
     }
-  })])])
-},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('ul', {
+  })])])], 1), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _c('ul', {
     staticClass: "list"
   }, [_c('li', {
     staticClass: "list-item "
   }, [_c('div', {
     staticClass: "list-item__center"
   }, [_c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.$store.state.lead.value),
+      expression: "$store.state.lead.value"
+    }],
     staticClass: "text-input",
     attrs: {
       "type": "text",
-      "placeholder": "Lead value",
-      "value": ""
+      "placeholder": "Lead value"
+    },
+    domProps: {
+      "value": (_vm.$store.state.lead.value)
+    },
+    on: {
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.$store.state.lead.value = $event.target.value
+      }
     }
-  })])])])
+  })])])]), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _vm._m(1)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "toolbar"
+  }, [_c('div', {
+    staticClass: "center toolbar__center"
+  }, [_vm._v("\n    New Lead\n  ")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('ul', {
     staticClass: "list "
@@ -25795,12 +25827,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      withDetail: false,
-      form: {
-        name: '',
-        numbers: [''],
-        emails: ['']
-      }
+      form: this.$store.state.contact
     };
   },
 
@@ -25808,26 +25835,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   computed: {
     showDetail: function showDetail() {
-      return this.$store.state.contact.set || this.withDetail;
+      return this.form.withDetail;
     }
   },
 
   methods: {
     create: function create() {
-      if (!(this.$store.state.contact.set || this.withDetail)) {
-        this.$store.state.contacts.push(this.form.name);
-        this.$router.go(-1);
-      } else {
-        this.$store.state.contacts.push(this.form.name);
-        this.$router.go(-1);
-      }
+      this.$store.state.contacts.push(this.form.name);
+      this.reset();
+      this.$router.go(-1);
+    },
+    reset: function reset() {
+      this.form.withDetail = false;
+      this.form.account = '';
+      this.form.Owner = '';
+      this.form.numbers = [''];
+      this.form.emails = [''];
     },
     account: function account() {
-      if (this.$store.state.contact.set) {
-        return this.$store.state.contact.obj.account;
-      }
-
-      return '';
+      return this.$store.state.contact.account;
     },
     addNumber: function addNumber() {
       if (this.form.numbers.length < 3) {
@@ -25913,7 +25939,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": function($event) {
         $event.preventDefault();
-        _vm.withDetail = true
+        _vm.form.withDetail = true
       }
     }
   }, [_vm._v("Add More Details")])])])])]) : _vm._e(), _vm._v(" "), _c('router-link', {
@@ -26217,9 +26243,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         setContactAccount: function setContactAccount(account) {
             console.log(account);
-            this.$store.state.contact.obj.account = account;
-            this.$store.state.contact.set = true;
-            console.log(this.$store.state.contact.obj);
+            this.$store.state.contact.account = account;
+            console.log(this.$store.state.contact);
             this.$router.go(-1);
         }
     }

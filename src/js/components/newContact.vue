@@ -33,7 +33,7 @@
       <li class="list-item " v-if="!showDetail">
         <div class="list-item__center ">
         <div class="add-more-details">
-          <span><a class="plain-anchor" @click.prevent="withDetail = true">Add More Details</a></span>
+          <span><a class="plain-anchor" @click.prevent="form.withDetail = true">Add More Details</a></span>
         </div>
         </div>
       </li>
@@ -121,12 +121,7 @@
     export default {
         data: function(){
             return {
-                    withDetail: false,
-                    form: {
-                      name: '',
-                      numbers: [''],
-                      emails: ['']
-                    }
+                    form: this.$store.state.contact
                   }
       },
 
@@ -136,28 +131,29 @@
 
       computed: {
         showDetail(){
-          return this.$store.state.contact.set || this.withDetail;
+          return this.form.withDetail;
         }
       },
 
       methods: {
         create(){
-          if(!(this.$store.state.contact.set || this.withDetail)){
               this.$store.state.contacts.push(this.form.name);
+              this.reset();
               this.$router.go(-1);
-          }else{
-            this.$store.state.contacts.push(this.form.name);
-            this.$router.go(-1);
-          }
         },
-        account(){
-          if(this.$store.state.contact.set){
-            return this.$store.state.contact.obj.account;
-            
-          }
 
-          return '';
+        reset(){
+            this.form.withDetail = false; 
+            this.form.account = '';
+            this.form.Owner = '';
+            this.form.numbers = [''];
+            this.form.emails = [''];
         },
+
+        account(){
+            return this.$store.state.contact.account;
+        },
+
         addNumber(){
           if(this.form.numbers.length < 3){
             this.form.numbers.push('');

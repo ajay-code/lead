@@ -12,21 +12,24 @@ export default new Vuex.Store({
                     'Ajay', 'Sukhjeet Singh', 'Hudson', 'Hull','Humphrey','Hunt','Hunter'
 		],
 		accounts: ['Hudson', 'Hull','Humphrey','Hunt'],
-	},
-	lead: {
-		contact: '',
-		account: '',
-		title: '',
-		value: '',
-		owner: ''
-	},
+		owners: ['Michel (you)', 'Ajay', 'Aman'],
+		lead: {
+			contact: '',
+			account: '',
+			title: '',
+			value: '',
+			owner: ''
+		},
 
-	contact: {
-		  name:'',
-		  account: '',
-		  Owner: '',
-          numbers: [''],
-          emails: ['']
-	}
+		contact: {
+			  name:'',
+			  account: '',
+			  Owner: '',
+	          numbers: [''],
+	          emails: [''],
+	          withDetail: false,
+		}
+	},
+	
 	
 })

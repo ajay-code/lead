@@ -71,9 +71,8 @@
         },
         setContactAccount(account){
           console.log(account);
-          this.$store.state.contact.obj.account = account;
-          this.$store.state.contact.set = true;
-          console.log(this.$store.state.contact.obj);
+          this.$store.state.contact.account = account;
+          console.log(this.$store.state.contact);
           this.$router.go(-1);
         }
 
